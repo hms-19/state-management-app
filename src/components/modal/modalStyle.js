@@ -1,8 +1,5 @@
 
 export const styles = {
-    bg_overlay: "fixed bg-black inset-0 z-10 opacity-10",
-    fcontainer:
-      "w-full md:w-1/3 bg-white z-20 fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 p-5 rounded-md",
     title: "text-lg font-bold text-ghost-500",
     form: "mt-4",
     label: "text-sm my-1 font-medium",

@@ -11,6 +11,7 @@ const Team = () => {
   const [value, setValue] = useState({});
   const dispatch = useDispatch();
 
+  // delete Team
   const handleDelete = (id) => {
     Swal.fire({
       title: 'Do you want to delete?',
@@ -29,15 +30,16 @@ const Team = () => {
       } 
     })
   }
+
   return (
     <div>
       <div className="flex flex-row justify-between items-center">
-        {data && data.length > 0 && (
+        {data.length > 0 && (
           <span className="text-sm font-medium">
-            Total Team - {data && data.length}
+            Total Team - {data.length}
           </span>
         )}
-        {data && data.length === 0 && (
+        {data.length === 0 && (
           <span className="">No Team</span>
         )}
         <button
@@ -51,30 +53,31 @@ const Team = () => {
         </button>
       </div>
       <div className={styles.container}>
-        {data &&
-          data.length > 0 &&
+        { data.length > 0 &&
           data.map((team, index) => (
             <div key={index} className={styles.card}>
               <h1 className="font-bold">{team.name}</h1>
-              <div className={styles.row}>
-                <span className="text-sm opacity-50 font-semibold grow">
+              <div>
+                <span className="text-sm opacity-50 font-semibold my-1">
                   Player Count - {team.player_count}
                 </span>
-                <button
-                  className="border px-1 rounded-md"
-                  onClick={() => {
-                    setValue({ ...team });
-                    setOpen(true);
-                  }}
-                >
-                  Edit
-                </button>
-                <button
-                  className="text-red-500 px-1 border rounded-md"
-                  onClick={() => handleDelete(team.id)}
-                >
-                  Delete
-                </button>
+                <div>
+                  <button
+                    className="border p-2 rounded-md mr-2"
+                    onClick={() => {
+                      setValue({ ...team });
+                      setOpen(true);
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="text-red-500 p-2 border rounded-md"
+                    onClick={() => handleDelete(team.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           ))}

@@ -1,9 +1,11 @@
 import React from "react";
 import { useInfiniteQuery } from "react-query";
-import { getPlayer } from "../../apis/getPlayer";
+import { getPlayer } from "../../apis/player";
 import { styles } from "./playerStyle";
 
 const Player = () => {
+
+  // infinite load
   const { data, isLoading, isSuccess, fetchNextPage, isError } =
     useInfiniteQuery("players", ({ pageParam = 0 }) => getPlayer(pageParam), {
       getNextPageParam: (allPages) => {

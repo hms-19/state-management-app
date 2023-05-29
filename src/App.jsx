@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
+  
   const [cookies] = useCookies(["token"]);
   const navigate = useNavigate();
 

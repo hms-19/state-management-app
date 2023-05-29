@@ -12,6 +12,7 @@ const Navbar = () => {
   const authUser = useSelector((state) => state.auth.user);
   const navigate = useNavigate()
   
+  // logout
   const handleLogout = () => {
     Swal.fire({
       title: 'Do you want to logout?',
@@ -28,12 +29,10 @@ const Navbar = () => {
 
   return (
     <nav className={styles.container}>
-      <div className="flex flex-row items-center space-x-3">
-        <div>
-          <span className="text-ghost-700 font-bold text-lg">
-            Hello, {authUser.username}
-          </span>
-        </div>
+      <div>
+        <span className="text-ghost-700 font-bold text-lg">
+          Hello, {authUser.username}
+        </span>
       </div>
 
       <button
